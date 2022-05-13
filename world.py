@@ -13,6 +13,7 @@ class Agent:
         self.hedonist_table = _hedonist_table
         self._action = None
         self.anticipated_outcome = None
+        self.cpt = 0
 
     def action(self, outcome):
         """ tracing the previous cycle """
@@ -26,9 +27,21 @@ class Agent:
         """ Computing the next action to enact """
         # TODO: Implement the agent's decision mechanism
         self._action = 0
+        if self.cpt > 4:
+            self._action = 1
+            if self.cpt > 9:
+                self._action = 0
+                self.cpt = 0
+            else:
+                self.cpt += 1
+        else :
+            self.cpt += 1
+
+
         # TODO: Implement the agent's anticipation mechanism
         self.anticipated_outcome = 0
         return self._action
+
 
 
 class Environment1:
@@ -56,6 +69,17 @@ class Environment3:
         """ Initializing Environment3 """
         self.previous_action = 0
 
+    class Environment4:
+        """ In Environment 4, action 0 yields outcome 1, action 1 yields outcome 0 """
+
+        def outcome(self, action):
+            if action == 0:
+                return 1
+            else:
+                return 0
+
+
+
     def outcome(self, action):
         _outcome = 1
         if action == self.previous_action:
@@ -78,7 +102,7 @@ e = Environment1()
 # e = OsoyooCarEnacter()
 
 if __name__ == '__main__':
-    """ The main loop controlling the interaction of the agent with the environmen """
+    """ The main loop controlling the interaction of the agent with the environment """
     outcome = 0
     for i in range(70):
         action = a.action(outcome)
