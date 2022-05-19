@@ -5,7 +5,7 @@
 from turtlepy_enacter import TurtlePyEnacter
 # from Agent5 import Agent5
 # from OsoyooCarEnacter import OsoyooCarEnacter
-
+import random
 
 class Agent:
     def __init__(self, _hedonist_table):
@@ -14,6 +14,7 @@ class Agent:
         self._action = None
         self.anticipated_outcome = None
         self.cpt = 0
+        self.previous.outcome = 0
 
     def action(self, outcome):
         """ tracing the previous cycle """
@@ -27,21 +28,32 @@ class Agent:
         """ Computing the next action to enact """
         # TODO: Implement the agent's decision mechanism
         self._action = 0
-        if self.cpt > 4:
-            self._action = 1
-            if self.cpt > 9:
-                self._action = 0
-                self.cpt = 0
-            else:
-                self.cpt += 1
-        else :
+        #if self.cpt > 4:
+        #    self._action = 1
+        #    if self.cpt > 9:
+        #        self._action = 0
+        #        self.cpt = 0
+        #    else:
+        #        self.cpt += 1
+        #else :
+        #    self.cpt += 1
+
+        if self.previous.outcome == outcome :
             self.cpt += 1
+            if self.cpt > 4:
+                self._action = 1
+                self.cpt = 0
 
 
         # TODO: Implement the agent's anticipation mechanism
         self.anticipated_outcome = 0
         return self._action
 
+class Environment4:
+    """ In Environment 4, action 0 yields outcome 1, action 1 yields outcome 0 """
+
+    def outcome(self, action):
+        return random.randint(0, 1)
 
 
 class Environment1:
@@ -69,15 +81,6 @@ class Environment3:
         """ Initializing Environment3 """
         self.previous_action = 0
 
-    class Environment4:
-        """ In Environment 4, action 0 yields outcome 1, action 1 yields outcome 0 """
-
-        def outcome(self, action):
-            if action == 0:
-                return 1
-            else:
-                return 0
-
 
 
     def outcome(self, action):
@@ -94,7 +97,7 @@ hedonist_table = [[-1, 1], [-1, 1]]
 a = Agent(hedonist_table)
 # a = Agent5(hedonist_table)
 # TODO Choose an environment
-e = Environment1()
+e = Environment4()
 # e = Environment2()
 # e = Environment3()
 # e = TurtleSimEnacter()
