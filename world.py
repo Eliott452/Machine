@@ -14,39 +14,41 @@ class Agent:
         self._action = None
         self.anticipated_outcome = None
         self.cpt = 0
-        self.previous.outcome = 0
+        self.previous_outcome = None
 
     def action(self, outcome):
         """ tracing the previous cycle """
+        if self.previous_outcome == outcome:
+            self.cpt += 1
+        else: self.cpt = 0
         if self._action is not None:
             print("Action: " + str(self._action) +
                   ", Anticipation: " + str(self.anticipated_outcome) +
                   ", Outcome: " + str(outcome) +
+                  ", cpt: " + str(self.cpt) +
                   ", Satisfaction: (anticipation: " + str(self.anticipated_outcome == outcome) +
                   ", valence: " + str(self.hedonist_table[self._action][outcome]) + ")")
 
         """ Computing the next action to enact """
         # TODO: Implement the agent's decision mechanism
-        self._action = 0
-        #if self.cpt > 4:
-        #    self._action = 1
-        #    if self.cpt > 9:
-        #        self._action = 0
-        #        self.cpt = 0
-        #    else:
-        #        self.cpt += 1
-        #else :
-        #    self.cpt += 1
 
-        if self.previous.outcome == outcome :
-            self.cpt += 1
-            if self.cpt > 4:
+        self._action = 0
+
+
+        if self.cpt >= 4:
+            #self._action = 1
+            self.cpt = 0
+
+            if self._action == 0:
                 self._action = 1
-                self.cpt = 0
+            elif self._action == 1:
+                self._action = 0
+
 
 
         # TODO: Implement the agent's anticipation mechanism
         self.anticipated_outcome = 0
+        self.previous_outcome = outcome
         return self._action
 
 class Environment4:
@@ -54,6 +56,8 @@ class Environment4:
 
     def outcome(self, action):
         return random.randint(0, 1)
+        return self.cpt
+
 
 
 class Environment1:
@@ -95,7 +99,7 @@ class Environment3:
 hedonist_table = [[-1, 1], [-1, 1]]
 # TODO Choose an agent
 a = Agent(hedonist_table)
-# a = Agent5(hedonist_table)
+#a = Agent5(hedonist_table)
 # TODO Choose an environment
 e = Environment4()
 # e = Environment2()
@@ -105,7 +109,7 @@ e = Environment4()
 # e = OsoyooCarEnacter()
 
 if __name__ == '__main__':
-    """ The main loop controlling the interaction of the agent with the environmen """
+    """ The main loop controlling the interaction of the agent with the environment """
     outcome = 0
     for i in range(70):
         action = a.action(outcome)
