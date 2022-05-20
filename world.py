@@ -6,6 +6,7 @@ from turtlepy_enacter import TurtlePyEnacter
 # from Agent5 import Agent5
 # from OsoyooCarEnacter import OsoyooCarEnacter
 import random
+from Agent2 import Agent2
 
 class Agent:
     def __init__(self, _hedonist_table):
@@ -98,10 +99,10 @@ class Environment3:
 # TODO Define the hedonist valance of interactions (action, outcome)
 hedonist_table = [[-1, 1], [-1, 1]]
 # TODO Choose an agent
-a = Agent(hedonist_table)
+a = Agent2(hedonist_table)
 #a = Agent5(hedonist_table)
 # TODO Choose an environment
-e = Environment4()
+e = Environment1()
 # e = Environment2()
 # e = Environment3()
 # e = TurtleSimEnacter()
