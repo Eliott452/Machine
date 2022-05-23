@@ -5,8 +5,8 @@
 from turtlepy_enacter import TurtlePyEnacter
 # from Agent5 import Agent5
 # from OsoyooCarEnacter import OsoyooCarEnacter
-import random
 from Agent2 import Agent2
+import random
 
 class Agent:
     def __init__(self, _hedonist_table):
@@ -49,7 +49,6 @@ class Agent:
 
         # TODO: Implement the agent's anticipation mechanism
         self.anticipated_outcome = 0
-        self.previous_outcome = outcome
         return self._action
 
 class Environment4:
@@ -88,12 +87,12 @@ class Environment3:
 
 
 
-    def outcome(self, action):
-        _outcome = 1
-        if action == self.previous_action:
-            _outcome = 0
-        self.previous_action = action
-        return _outcome
+    #def outcome(self, action):
+    #    _outcome = 1
+    #   if action == self.previous_action:
+    #        _outcome = 0
+    #   self.previous_action = action
+    #    return _outcome
 
 
 # TODO Define the hedonist valance of interactions (action, outcome)
