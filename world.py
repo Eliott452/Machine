@@ -4,11 +4,12 @@
 # from turtlesim_enacter import TurtleSimEnacter # requires ROS
 from turtlepy_enacter import TurtlePyEnacter
 
-from Agent2 import Agent2
+#from Agent2 import Agent2
 from Agent3 import Agent3
+
 import random
 
-from Agent5 import Agent5
+#from Agent5 import Agent5
 from OsoyooCarEnacter import OsoyooCarEnacter
 ROBOT_IP = "192.168.4.1"
 
@@ -105,7 +106,7 @@ valences = [[-1, 1], [-1, 1]]
 # valences = [[1, -1], [1, -1]]
 # TODO Choose an agent
 
-a = Agent3(hedonist_table)
+a = Agent3(valences)
 #a = Agent5(hedonist_table)
 # a = Agent(valences)
 # a = Agent5(valences)

@@ -41,7 +41,8 @@ class Agent3:
         return self._action
 
         if self._action == 0:
-            if outcome =1 :
-                
-        if self.hedonist_table = [[-1, 1], [-1, 1]]
-            return
+            if outcome = 1:
+
+        else:
+
+
