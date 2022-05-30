@@ -2,16 +2,15 @@
 import random
 
 class Agent3:
-    def __init__(self, _hedonist_table):
+
+    def __init__(self, hedo_tab):
         """ Creating our agent """
-        self.hedonist_table = _hedonist_table
-        self._action = 0
-        self.previous_action = 0
-        self.anticipated_outcome = None
         self.counter = 0
-        self.previous_outcome = 0
-        self.outcome_for_action1 = 0
-        self.outcome_for_action0 = 0
+        self.hedonist_table = [[-1, 1], [-1, 1]]
+        self.hedonist_table = hedo_tab
+        self.previous_action = 0
+        self._action = 0
+        self.anticipated_outcome = None
 
     def action(self, outcome):
         """ tracing the previous cycle """
@@ -23,26 +22,8 @@ class Agent3:
                       ", valence: " + str(self.hedonist_table[self._action][outcome]) +
                       "; counter: " + str(self.counter) + ")")
 
-
-        #prochaine action
-        if self._action == 0:
-            self.outcome_for_action0 = outcome
-            self._action = 1
+        if self.hedonist_table[self._action][outcome] == 1:
+            return self._action
         else:
-            self.outcome_for_action1 = outcome
-            self._action = 0
-
-        #anticipation
-        if self._action == 0:
-            self.anticipated_outcome = self.outcome_for_action0
-        else:
-            self.anticipated_outcome = self.outcome_for_action1
-
-        return self._action
-
-        if self._action == 0:
-            if outcome = 1:
-
-        else:
-
+            return 0
 
