@@ -6,12 +6,13 @@ class Agent3:
         """ Creating our agent """
         self.valence_table = valence_table
         self._action = 0
-        self.previous_outcome = 0
-        self.previous_action = 0
-        self.outcome_for_action1 = 0
         self.outcome_for_action0 = 0
+        self.outcome_for_action1 = 0
         self.anticipated_outcome = None
         self.counter = 0
+        self.previous_outcome = 0
+        self.previous_action = 0
+
 
 
     def action(self, outcome):
@@ -25,20 +26,32 @@ class Agent3:
                       "; counter: " + str(self.counter) + ")")
 
 
-        # Choisir la prochaine action
         if self._action == 0:
             self.outcome_for_action0 = outcome
+
         else:
             self.outcome_for_action1 = outcome
+
+
+        if self._action == 0:
+            self.anticipated_outcome = self.outcome_for_action0
+
+        else:self.anticipated_outcome = self.outcome_for_action1
+
+
 
         valence0 = self.valence_table[0][self.outcome_for_action0]
         valence1 = self.valence_table[1][self.outcome_for_action1]
 
         if valence0 > valence1:
+            self.anticipated_outcome = self.outcome_for_action0
             self._action = 0
+        elif valence0 == valence1:
+            self._action = random.randint(0, 1)
         else:
+            self.anticipated_outcome = self.outcome_for_action1
             self._action = 1
 
 
-
         return self._action
+
