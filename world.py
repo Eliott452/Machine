@@ -111,11 +111,11 @@ a = Agent3(valences)
 # a = Agent(valences)
 # a = Agent5(valences)
 # TODO Choose an environment
-e = Environment1()
+# e = Environment1()
 # e = Environment2()
 # e = Environment3()
 # e = TurtleSimEnacter()
-# e = TurtlePyEnacter()
+e = TurtlePyEnacter()
 # e = OsoyooCarEnacter(ROBOT_IP)
 
 if __name__ == '__main__':
