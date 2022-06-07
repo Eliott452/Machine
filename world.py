@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # Olivier Georgeon, 2021.
 # This code is used to teach Developmental AI.
-# from turtlesim_enacter import TurtleSimEnacter # requires ROS
-from turtlepy_enacter import TurtlePyEnacter
+from turtlesim_enacter import TurtleSimEnacter # requires ROS
+#from turtlepy_enacter import TurtlePyEnacter
 
 #from Agent2 import Agent2
 #from Agent3 import Agent3
@@ -116,8 +116,8 @@ a = Agent4(valences)
 # e = Environment2()
 # e = Environment3()
 # e = TurtleSimEnacter()
-e = TurtlePyEnacter()
-# e = OsoyooCarEnacter(ROBOT_IP)
+#e = TurtlePyEnacter()
+e = OsoyooCarEnacter("10.40.20.250")
 
 if __name__ == '__main__':
     """ The main loop controlling the interaction of the agent with the environment """

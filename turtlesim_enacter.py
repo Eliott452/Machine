@@ -1,7 +1,7 @@
 #!/usr/bin/env python
-import rospy
-from geometry_msgs.msg import Twist
-from turtlesim.msg import Pose
+#import rospy
+#from geometry_msgs.msg import Twist
+#from turtlesim.msg import Pose
 
 # Olivier Georgeon, 2020.
 # This code is used to teach Developmental AI.
