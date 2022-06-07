@@ -12,5 +12,5 @@ lorsqu'elle rencontre un mur pour qu'elle puisse le raser.
 
 # Exemple 
 
-Photo : ![](../../AppData/Roaming/JetBrains/PyCharmCE2021.3/scratches/img.png)
+Photo : ![](img.png)
 
