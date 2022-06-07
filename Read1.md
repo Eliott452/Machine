@@ -12,5 +12,7 @@ lorsqu'elle rencontre un mur pour qu'elle puisse le raser.
 
 # Exemple 
 
-Photo : ![](img.png)
+Photo : 
+
+![](img.png)
 
