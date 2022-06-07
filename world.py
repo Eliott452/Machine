@@ -5,7 +5,8 @@
 from turtlepy_enacter import TurtlePyEnacter
 
 #from Agent2 import Agent2
-from Agent3 import Agent3
+#from Agent3 import Agent3
+from Agent4 import Agent4
 
 import random
 
@@ -102,11 +103,11 @@ class Environment3:
 
 
 # TODO Define the valance of interactions (action, outcome)
-valences = [[-1, 1], [-1, 1]]
+valences = [[-1, 1], [-1, 1],[0, 2]]
 # valences = [[1, -1], [1, -1]]
 # TODO Choose an agent
 
-a = Agent3(valences)
+a = Agent4(valences)
 #a = Agent5(hedonist_table)
 # a = Agent(valences)
 # a = Agent5(valences)
@@ -121,6 +122,6 @@ e = TurtlePyEnacter()
 if __name__ == '__main__':
     """ The main loop controlling the interaction of the agent with the environment """
     outcome = 0
-    for i in range(20):
+    for i in range(70):
         action = a.action(outcome)
         outcome = e.outcome(action)
